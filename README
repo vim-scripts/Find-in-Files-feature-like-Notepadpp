@@ -1,0 +1,60 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=4947
+
+This script has been written to mimic the Notepad++ 's 'Find in Files' feature.
+Keeping the simplicity in mind, this script is written to be simple.
+The objective of this script is to eliminate the hassle of
+searching through vimgrep to the new users and provide
+a quick yet easy way to do this job.
+
+Tested on Windows 7 64-bit (Gvim official 32-bit)
+Tested on Linux (UBUNTU 13.10 Saucy) (Gvim from its repository)
+
+*EXAMPLES*
+Say you have to find something (e.g. printf) in a specified directory
+(e.g. C:\CodeBlocks\TDM-GCC-64\x86_64-w64-mingw32\include ) in a bunch of
+C header files (i.e.,    .h).
+
+Select the item from Menu Bar -> Edit -> Find in Files.
+An input box will appear, asking for term you are looking for.
+Fill it up and press OK.
+
+This time you will see a directory browser, navigate to the directory
+in which you want to perform the search operation. Press Open.
+
+Now another input box will ask you to submit the extension
+(e.g.  .txt, .h, .c etc), if you are willing to look into the
+
+-----------------------------------------------------------------------------------
+   C header files                |       give             h
+-----------------------------------------------------------------------------------
+   C files                           |       give             c
+-----------------------------------------------------------------------------------
+   C++ files                       |       give        cpp  cxx C  whichever is
+                                       |             most suitable to the situation.
+-----------------------------------------------------------------------------------
+   text files                        |       give             txt
+-----------------------------------------------------------------------------------
+   extension-less files         |       sorry, this plug-in currently
+                                        |    does not work with extension-less files.
+-----------------------------------------------------------------------------------
+   Other type of files            |       give the extension only,
+                                        |        but do not use any wild-card or dot.
+-----------------------------------------------------------------------------------
+Never write   .h   .txt   etc, the script will fail to work.
+                                            It already does the job internally.
+Always write   h    txt   this way.
+
+*LIMITATIONS*
+1 . Currently this script cannot search the directory recursively,
+but in future an option will be there.
+2 . Currently this script cannot search into the extension-less files.
+3 . vimgrep is a slow process, please be patient while searching.
+
+*INTERNAL*
+The raw method of searching something within a bunch of similar file-type is
+:vimgrep /the_term_u_r_looking_4/ Directory\*.extension
+Like:
+:vimgrep /printf/ C:\CodeBlocks\TDM-GCC-64\x86_64-w64-mingw32\include\*.h
+
+This script internally does this.
+

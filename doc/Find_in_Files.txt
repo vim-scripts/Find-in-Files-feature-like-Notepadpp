@@ -1,0 +1,120 @@
+*Find_in_Files.txt*                        |Find_in_Files|  |Find_in_Files-plugin|
+    Implementation of a simple feature "Find in Files and Directories"
+    like Notepad++
+
+
+	Last Change: 2014-05-23  Thursday: 02:15:01 AM
+
+	Version 0.0.01-win32/64-linux (2014-01-27  Thursday: 02:15:01 AM)
+
+
+	  By Pinaki Sekhar Gupta <appugupta007@yahoo.co.in>,<appugupta007@gmail.com>
+	  (Don't mail me unless it becomes necessary, discuss everything
+	  at the Vim-Wiki, click at the top of the plugin's page)
+
+			*Find_in_Files*      *Find_in_Files-plugin*
+	Contents:
+
+		Menu...................|Find_in_Files-menu|
+		Usage and Examples................|Find_in_Files-usage|
+		Limitations...............|Find_in_Files-limitations|
+		Licence...............|Find_in_Files-licence|
+		Internal...............|Find_in_Files-internal|
+
+
+This script has been written to mimic the Notepad++ 's 'Find in Files' feature.
+Keeping the simplicity in mind, this script is written to be simple.
+The objective of this script is to eliminate the hassle of
+searching through |vimgrep| to the new users and provide
+a quick yet easy way to do this job.
+
+
+
+==============================================================================
+MENU						    *Find_in_Files-menu*
+
+This plug-in is mapped into Menu Bar -> Edit -> Find in Files.
+It does not have any other mapping, since it is meant to be simple.
+
+==============================================================================
+EXAMPLES                     *Find_in_Files-usage*
+
+Say you have to find something (e.g. printf) in a specified directory
+(e.g. C:\CodeBlocks\TDM-GCC-64\x86_64-w64-mingw32\include ) in a bunch of
+C header files (i.e.,    .h).
+
+Select the item from Menu Bar -> Edit -> Find in Files.
+An input box will appear, asking for term you are looking for.
+Fill it up and press OK.
+
+This time you will see a directory browser, navigate to the directory
+in which you want to perform the search operation. Press Open.
+
+Now another input box will ask you to submit the extension
+(e.g.  .txt, .h, .c etc), if you are willing to look into the
+
+-----------------------------------------------------------------------------------
+   C header files                     |       give             h
+-----------------------------------------------------------------------------------
+   C files                            |       give             c
+-----------------------------------------------------------------------------------
+   C++ files                          |       give        cpp  cxx C  whichever is
+                                      |             most suitable to the situation.
+-----------------------------------------------------------------------------------
+   text files                         |       give             txt
+-----------------------------------------------------------------------------------
+   extension-less files               |       sorry, this plug-in currently
+                                      |    does not work with extension-less files.
+-----------------------------------------------------------------------------------
+   Other type of files                |       give the extension only,
+                                      |        but do not use any wild-card or dot.
+-----------------------------------------------------------------------------------
+Never write   .h   .txt   etc, the script will fail to work.
+                                            It already does the job internally.
+Always write   h    txt   this way.
+
+
+==============================================================================
+LIMITATIONS						 *Find_in_Files-limitations*
+
+1 . Currently this script cannot search the directory recursively,
+but in future an option will be there.
+2 . Currently this script cannot search into the extension-less files.
+3 . |vimgrep| is a slow process, please be patient while searching.
+
+==============================================================================
+THANKS
+
+	The following people and sites have helped me with the auto_tags_gen
+	Plug-in development, I dedicate this plug-in to them:
+
+	o  My Father, Chandra Sekhar Gupta.
+		   He gave me time to work on this project.
+	o  http://vim.1045645.n5.nabble.com/How-can-I-pass-user-input-value-to-vimgrep-td5721661.html
+        This script is a derivative of a discussion in this site.
+		   I collected numerous tips from various web pages
+		   discussed by their members including 'vim nabble'.
+	o  Google.
+		   For a free of charge knowledge base.
+==============================================================================
+INTERNAL                            *Find_in_Files-internal*
+
+The raw method of searching something within a bunch of similar file-type is
+:|vimgrep| /the_term_u_r_looking_4/ Directory\*.extension
+Like:
+:|vimgrep| /printf/ C:\CodeBlocks\TDM-GCC-64\x86_64-w64-mingw32\include\*.h
+
+This script internally does this.
+
+==============================================================================
+FIND IN FILES LICENCE                            *Find_in_Files-licence*
+
+There is no specific licence condition.
+You can modify and distribute this plug-in for any of your interest,
+but if you modify this plug-in, you have to disclose and publish it
+at your own capacity. You can inform me, suggest me for the improvement
+of this plug-in.
+
+I cannot be held responsible for any damage/harm caused by this plug-in.
+==============================================================================
+ vim:ts=8 sw=8 noexpandtab tw=78 ft=help:
